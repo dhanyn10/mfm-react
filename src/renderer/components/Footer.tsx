@@ -5,9 +5,9 @@ import {
 
 const Footer = () => {
     return (
-        <Navbar bg="light">
+        <Navbar bg="info" className='mt-4'>
             <Container>
-            <Navbar.Brand href="#home">Footer</Navbar.Brand>
+                <Navbar.Brand href="">Footer</Navbar.Brand>
             </Container>
         </Navbar>
     )
