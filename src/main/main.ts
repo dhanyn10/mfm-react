@@ -75,11 +75,15 @@ const createWindow = async () => {
     height: 728,
     icon: getAssetPath('icon.png'),
     webPreferences: {
-      preload: app.isPackaged
-        ? path.join(__dirname, 'preload.js')
-        : path.join(__dirname, '../../.erb/dll/preload.js'),
+      nodeIntegration: true,
+      contextIsolation: false
     },
   });
+  
+  //load electron remote
+  require('@electron/remote/main').initialize()
+  // fix: @electron/remote is disabled for this WebContents
+  require("@electron/remote/main").enable(mainWindow.webContents)
 
   mainWindow.loadURL(resolveHtmlPath('index.html'));
 
