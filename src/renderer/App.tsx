@@ -8,14 +8,14 @@ import ListFiles from './components/listFiles'
 import Footer from './components/Footer'
 
 export default function App() {
-    return (
-        <div>
-            <Topnavbar/>
-            <Container>
-                <InputFolder/>
-                <ListFiles/>
-                <Footer/>
-            </Container>
-        </div>
-    );
+  return (
+    <div>
+      <Topnavbar/>
+      <Container>
+        <InputFolder/>
+        <ListFiles/>
+        <Footer/>
+      </Container>
+    </div>
+  );
 }
