@@ -10,14 +10,18 @@ import Footer from './components/Footer'
 import React from 'react';
 
 export default class App extends React.Component{
-  getInitialState() {
-    return {
-      filespathdata: ''
+  constructor() {
+    super()
+
+    this.state = {
+      filespathdata: null
     }
   }
   handlePathData = (value) => {
-    let report = "app" + value
-    alert(report)
+    // let report = "app" + value
+    this.setState({
+      filespathdata: value
+    })
   }
   render() {
     return (
@@ -25,7 +29,7 @@ export default class App extends React.Component{
         <Topnavbar/>
         <Container>
           <InputFolder filespath={this.handlePathData}/>
-          <ListFiles/>
+          <ListFiles retrievefilespath={this.state.filespathdata}/>
           <Footer/>
         </Container>
       </div>
