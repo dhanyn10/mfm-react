@@ -8,19 +8,6 @@ import {
 import React from 'react'
 import { dialog } from '@electron/remote'
 
-// function browse () {
-//   dialog.showOpenDialog({
-//     properties: ['openDirectory']
-//   }).then(result => {
-//     //when user doesnt cancel opendirectory
-//     if(result.canceled == false)
-//     {
-//       result.filePaths[0]
-//     }
-//   }).catch(error => {
-//     console.error(`error : ${error}`)
-//   })
-// }
 export class InputFolder extends React.Component {
   state = {
     folderPath: ""
