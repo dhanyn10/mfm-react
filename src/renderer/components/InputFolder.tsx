@@ -9,9 +9,6 @@ import React from 'react'
 import { dialog } from '@electron/remote'
 
 export class InputFolder extends React.Component {
-  state = {
-    folderPath: ""
-  }
 
   browse = () => {
     dialog.showOpenDialog({
