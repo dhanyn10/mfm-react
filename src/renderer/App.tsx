@@ -7,15 +7,32 @@ import InputFolder from './components/InputFolder';
 import ListFiles from './components/listFiles'
 import Footer from './components/Footer'
 
-export default function App() {
-  return (
-    <div>
-      <Topnavbar/>
-      <Container>
-        <InputFolder/>
-        <ListFiles/>
-        <Footer/>
-      </Container>
-    </div>
-  );
+import React from 'react';
+
+export default class App extends React.Component{
+  constructor() {
+    super()
+
+    this.state = {
+      filespathdata: null
+    }
+  }
+  handlePathData = (value) => {
+    // let report = "app" + value
+    this.setState({
+      filespathdata: value
+    })
+  }
+  render() {
+    return (
+      <div>
+        <Topnavbar/>
+        <Container>
+          <InputFolder filespath={this.handlePathData}/>
+          <ListFiles retrievefilespath={this.state.filespathdata}/>
+          <Footer/>
+        </Container>
+      </div>
+    );  
+  }
 }
