@@ -40,7 +40,7 @@ export default class ListFiles extends React.Component {
   }
   render() {
     return (
-      <ListGroup>
+      <ListGroup className='scroll'>
         {this.state.listfileArray.map(d => (
           <ListGroup.Item key={d.id}>{d.name}</ListGroup.Item>
         ))} 
