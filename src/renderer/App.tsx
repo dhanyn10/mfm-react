@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap'
 import Topnavbar from './components/TopNavbar'
 import InputFolder from './components/InputFolder';
 import ListFiles from './components/listFiles'
-import Footer from './components/Footer'
+import WorkerOptions from './components/WorkerOptions'
 
 import React from 'react';
 
@@ -14,7 +14,8 @@ export default class App extends React.Component{
     super()
 
     this.state = {
-      filespathdata: null
+      filespathdata: null,
+      listFilesData: []
     }
   }
   handlePathData = (value) => {
@@ -23,14 +24,24 @@ export default class App extends React.Component{
       filespathdata: value
     })
   }
+  handlerSendFilesData = (value) => {
+    this.setState({
+      listFilesData: value
+    })
+  }
   render() {
     return (
       <div>
         <Topnavbar/>
         <Container>
           <InputFolder filespath={this.handlePathData}/>
-          <ListFiles retrievefilespath={this.state.filespathdata}/>
-          <Footer/>
+          <WorkerOptions
+            workerListFilesData={this.state.listFilesData}
+          />
+          <ListFiles
+            retrievefilespath={this.state.filespathdata}
+            sendFilesData={this.handlerSendFilesData}
+          />
         </Container>
       </div>
     );  
