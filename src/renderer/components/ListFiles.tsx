@@ -10,7 +10,6 @@ export default class ListFiles extends React.Component {
     this.state = {
       fulldir: null,
       listfileArray: [],
-      isDataExist: true,
       listFilesHtml: []
     }
   }
@@ -32,9 +31,8 @@ export default class ListFiles extends React.Component {
       })
       if(countList > 0)
       {
-        this.setState({
-          isDataExist: true
-        })
+        this.setState({})
+        this.props.sendFilesData(this.state.listfileArray)
       }
     }
   }
@@ -46,6 +44,7 @@ export default class ListFiles extends React.Component {
     else
       listfileArray[idx] = {...listfileArray[idx], selected: false}
     this.setState({listfileArray})
+    this.props.sendFilesData(this.state.listfileArray)
   }
   render() {
     return (
