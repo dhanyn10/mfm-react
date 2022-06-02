@@ -1,10 +1,7 @@
 import {
+  Nav,
   Navbar,
-  Container,
-  Form,
-  Button,
-  Row,
-  Col
+  Container
 } from 'react-bootstrap'
 import React from 'react'
 
@@ -29,25 +26,15 @@ export default class WorkerOptions extends React.Component {
     if(this.state.listLength > 0)
     {
       return (
-        <Navbar bg="info" className='mt-4'>
+        <Navbar bg="light" className='mt-4 mb-2 border'>
           <Container>
-          <Navbar.Collapse className="justify-content-end">
-            <Row>
-              <Col>
-                <Form.Select aria-label="select-options">
-                  <option>Options</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </Form.Select>
-              </Col>
-              <Col>
-                <div className='d-grid'>
-                  <Button variant='danger'>Go</Button>
-                </div>
-              </Col>
-            </Row>
-          </Navbar.Collapse>
+            <Navbar.Collapse>
+              <Nav>
+                <Nav.Link href="#">Replace</Nav.Link>
+                <Nav.Link href="#">Insert</Nav.Link>
+                <Nav.Link href="#">Delete</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
           </Container>
         </Navbar>
       )
