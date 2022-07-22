@@ -32,18 +32,17 @@ export default class WorkerOptions extends React.Component {
           <Container>
             <Navbar.Collapse>
               <Nav>
-                <Nav.Link href="#">Replace</Nav.Link>
+                <Nav.Link href="#">Rename</Nav.Link>
                 <Nav.Link href="#">Insert</Nav.Link>
                 <OverlayTrigger
                   placement="bottom-start"
                   overlay={
                     <Popover id="popover-delete">
-                      <Popover.Header as="h3">Details</Popover.Header>
                       <Popover.Body>
-                        Deleting duplicated files or folders
+                        Delete duplicated files or folders
                       </Popover.Body>
                     </Popover>
-                  } 
+                  }
                 >
                   <Nav.Link href="#">Delete</Nav.Link>
                 </OverlayTrigger>
