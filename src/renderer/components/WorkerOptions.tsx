@@ -33,7 +33,18 @@ export default class WorkerOptions extends React.Component {
             <Navbar.Collapse>
               <Nav>
                 <Nav.Link href="#">Rename</Nav.Link>
-                <Nav.Link href="#">Insert</Nav.Link>
+                <OverlayTrigger
+                  placement="bottom-start"
+                  overlay={
+                    <Popover id="popover-insert">
+                      <Popover.Body>
+                        Bulk insert more characters to your files name
+                      </Popover.Body>
+                    </Popover>
+                  }
+                >
+                  <Nav.Link href="#">Insert</Nav.Link>
+                </OverlayTrigger>
                 <OverlayTrigger
                   placement="bottom-start"
                   overlay={
