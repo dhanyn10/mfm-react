@@ -1,35 +1,32 @@
-import {
-  Row,
-  Col,
-  Form,
-  Button
-} from 'react-bootstrap'
+import { Row, Col, Form, Button } from 'react-bootstrap';
+import React from 'react';
+import { dialog } from '@electron/remote';
 
-import React from 'react'
-import { dialog } from '@electron/remote'
-
-export class InputFolder extends React.Component <any, any> {
-
+export class InputFolder extends React.Component<any, any> {
   browse = () => {
-    dialog.showOpenDialog({
-      properties: ['openDirectory']
-    }).then(result => {
-      //when user doesnt cancel opendirectory
-      if(result.canceled == false)
-      {
-        let filepaths = result.filePaths[0]
-        this.props.filespath(filepaths)
-      }
-    }).catch(error => {
-      console.error(`error : ${error}`)
-    })
-  }
+    dialog
+      .showOpenDialog({
+        properties: ['openDirectory'],
+      })
+      .then((result) => {
+        //  when user doesnt cancel opendirectory
+        if (result.canceled === false) {
+          const filepaths = result.filePaths[0];
+          this.props.filespath(filepaths);
+        }
+        return null;
+      })
+      .catch((error) => {
+        console.error(`error : ${error}`);
+      });
+  };
+
   render() {
     return (
-      <Row className='mb-4'>
+      <Row className="mb-4">
         <Col xs="8">
           <Form.Control
-            className='rounded-0'
+            className="rounded-0"
             type="text"
             placeholder="Folder..."
             disabled
@@ -37,12 +34,14 @@ export class InputFolder extends React.Component <any, any> {
         </Col>
         <Col xs="4">
           <div className="d-grid gap-2">
-            <Button variant="info rounded-0" onClick={this.browse}>Browse</Button>
+            <Button variant="info rounded-0" onClick={this.browse}>
+              Browse
+            </Button>
           </div>
         </Col>
       </Row>
-    )
+    );
   }
 }
 
-export default InputFolder
+export default InputFolder;
