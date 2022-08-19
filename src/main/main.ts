@@ -76,14 +76,14 @@ const createWindow = async () => {
     icon: getAssetPath('icon.png'),
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: false,
     },
   });
-  
-  //load electron remote
-  require('@electron/remote/main').initialize()
+
+  // load electron remote
+  require('@electron/remote/main').initialize();
   // fix: @electron/remote is disabled for this WebContents
-  require("@electron/remote/main").enable(mainWindow.webContents)
+  require('@electron/remote/main').enable(mainWindow.webContents);
 
   mainWindow.loadURL(resolveHtmlPath('index.html'));
 
