@@ -11,6 +11,12 @@ module.exports = {
     // more custom rules
     '@typescript-eslint/no-explicit-any': 'off',
     'no-console': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
   parserOptions: {
     ecmaVersion: 2020,
