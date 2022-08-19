@@ -1,66 +1,66 @@
-import React from 'react'
-import { ListGroup } from 'react-bootstrap'
-import { Utils } from 'renderer/scripts/Utils'
-import fs from 'fs'
+import React from 'react';
+import { ListGroup } from 'react-bootstrap';
+import { Utils } from 'renderer/scripts/Utils';
+import fs from 'fs';
 
-export default class ListFiles extends React.Component <any, any> {
+export default class ListFiles extends React.Component<any, any> {
   constructor(props: any) {
-    super(props)
+    super(props);
 
     this.state = {
-      fulldir: null,
       listfileArray: [],
-      listFilesHtml: []
-    }
+    };
   }
-  componentDidUpdate(props: { retrievefilespath: string })
-  {
-    if(this.props.retrievefilespath !== props.retrievefilespath)
-    {
-      let path = this.props.retrievefilespath
-      let dirLocation = Utils.fulldirFunc(path)
-      let rdir = fs.readdirSync(dirLocation)
-      let countList = 0
+
+  componentDidUpdate(props: { retrievefilespath: string }) {
+    if (this.props.retrievefilespath !== props.retrievefilespath) {
+      const path = this.props.retrievefilespath;
+      const dirLocation = Utils.fulldirFunc(path);
+      const rdir = fs.readdirSync(dirLocation);
+      let countList = 0;
       rdir.forEach((filename) => {
         this.state.listfileArray.push({
-            id: countList,
-            name: filename,
-            selected: false
-        })
-        countList++
-      })
-      if(countList > 0)
-      {
-        this.setState({})
-        this.props.sendFilesData(this.state.listfileArray)
+          id: countList,
+          name: filename,
+          selected: false,
+        });
+        countList += 1;
+      });
+      if (countList > 0) {
+        this.setState({});
+        this.props.sendFilesData(this.state.listfileArray);
       }
     }
   }
-  handleSelection = (id: any) => {
-    let idx = id
-    let listfileArray = [...this.state.listfileArray ]
-    if(this.state.listfileArray[idx].selected == false)
-      listfileArray[idx] = {...listfileArray[idx], selected: true}
-    else
-      listfileArray[idx] = {...listfileArray[idx], selected: false}
 
-    console.log("listfiles: ", listfileArray)
-    //save data with setState, keep for future array
-    this.setState({listfileArray})
-    this.props.sendFilesData(listfileArray)
-  }
+  handleSelection = (id: any) => {
+    const idx = id;
+    const listfileArray = [...this.state.listfileArray];
+    if (this.state.listfileArray[idx].selected === false)
+      listfileArray[idx] = { ...listfileArray[idx], selected: true };
+    else {
+      listfileArray[idx] = { ...listfileArray[idx], selected: false };
+    }
+
+    console.log('listfiles: ', listfileArray);
+    // save data with setState, keep for future array
+    this.setState({ listfileArray });
+    this.props.sendFilesData(listfileArray);
+  };
+
   render() {
     return (
-      <ListGroup className='scroll'>
-        {this.state.listfileArray.map( (d: any) => (
+      <ListGroup className="scroll">
+        {this.state.listfileArray.map((d: any) => (
           <ListGroup.Item
             key={d.id}
-            className={d.selected == true ? 'active': null}
+            className={d.selected === true ? 'active' : null}
             onClick={() => this.handleSelection(d.id)}
-          >{d.name}
-        </ListGroup.Item>
-        ))} 
+          >
+            {d.name}
+          </ListGroup.Item>
+        ))}
       </ListGroup>
-    )
+    );
   }
 }
