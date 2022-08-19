@@ -11,6 +11,7 @@ module.exports = {
     // more custom rules
     '@typescript-eslint/no-explicit-any': 'off',
     'no-console': 'off',
+    'import/prefer-default-export': 'off',
     'prettier/prettier': [
       'error',
       {
