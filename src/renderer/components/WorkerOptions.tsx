@@ -7,14 +7,14 @@ import {
 import React from 'react'
 
 export default class WorkerOptions extends React.Component <any, any> {
-  constructor() {
-    super()
+  constructor(props: any) {
+    super(props)
 
     this.state = {
       listFiles: 0
     }
   }
-  componentDidUpdate(props)
+  componentDidUpdate(props: { workerListFilesData: Array<any> })
   {
     if(this.props.workerListFilesData !== props.workerListFilesData)
     {

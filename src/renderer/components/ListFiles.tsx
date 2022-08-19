@@ -4,8 +4,8 @@ import { Utils } from 'renderer/scripts/Utils'
 import fs from 'fs'
 
 export default class ListFiles extends React.Component <any, any> {
-  constructor() {
-    super()
+  constructor(props: any) {
+    super(props)
 
     this.state = {
       fulldir: null,
@@ -13,7 +13,7 @@ export default class ListFiles extends React.Component <any, any> {
       listFilesHtml: []
     }
   }
-  componentDidUpdate(props)
+  componentDidUpdate(props: { retrievefilespath: string })
   {
     if(this.props.retrievefilespath !== props.retrievefilespath)
     {
@@ -36,7 +36,7 @@ export default class ListFiles extends React.Component <any, any> {
       }
     }
   }
-  handleSelection = (id) => {
+  handleSelection = (id: any) => {
     let idx = id
     let listfileArray = [...this.state.listfileArray ]
     if(this.state.listfileArray[idx].selected == false)
@@ -52,7 +52,7 @@ export default class ListFiles extends React.Component <any, any> {
   render() {
     return (
       <ListGroup className='scroll'>
-        {this.state.listfileArray.map(d => (
+        {this.state.listfileArray.map( (d: any) => (
           <ListGroup.Item
             key={d.id}
             className={d.selected == true ? 'active': null}

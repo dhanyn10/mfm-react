@@ -18,13 +18,13 @@ export default class App extends React.Component <any, any> {
       listFilesData: []
     }
   }
-  handlePathData = (value) => {
+  handlePathData = (value: string) => {
     // let report = "app" + value
     this.setState({
       filespathdata: value
     })
   }
-  handlerSendFilesData = (value) => {
+  handlerSendFilesData = (value: Array<any>) => {
     console.log('App - filesdata: ', value)
     this.setState({
       listFilesData: value
