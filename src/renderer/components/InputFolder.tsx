@@ -8,7 +8,7 @@ import {
 import React from 'react'
 import { dialog } from '@electron/remote'
 
-export class InputFolder extends React.Component {
+export class InputFolder extends React.Component <any, any> {
 
   browse = () => {
     dialog.showOpenDialog({

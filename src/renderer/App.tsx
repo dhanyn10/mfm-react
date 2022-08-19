@@ -9,9 +9,9 @@ import WorkerOptions from './components/WorkerOptions'
 
 import React from 'react';
 
-export default class App extends React.Component{
-  constructor() {
-    super()
+export default class App extends React.Component <any, any> {
+  constructor(props: any) {
+    super(props)
 
     this.state = {
       filespathdata: null,
@@ -25,6 +25,7 @@ export default class App extends React.Component{
     })
   }
   handlerSendFilesData = (value) => {
+    console.log('App - filesdata: ', value)
     this.setState({
       listFilesData: value
     })

@@ -6,12 +6,12 @@ import {
 } from 'react-bootstrap'
 import React from 'react'
 
-export default class WorkerOptions extends React.Component {
+export default class WorkerOptions extends React.Component <any, any> {
   constructor() {
     super()
 
     this.state = {
-      listLength: 0
+      listFiles: 0
     }
   }
   componentDidUpdate(props)
@@ -19,8 +19,9 @@ export default class WorkerOptions extends React.Component {
     if(this.props.workerListFilesData !== props.workerListFilesData)
     {
       this.setState({
-        listLength: this.props.workerListFilesData.length
+        listFiles: this.props.workerListFilesData
       })
+      console.log("workerOptions", this.props.workerListFilesData)
     }
   }
   Rename()
@@ -28,7 +29,7 @@ export default class WorkerOptions extends React.Component {
     console.log('rename')
   }
   render() {
-    if(this.state.listLength > 0)
+    if(this.state.listFiles.length > 0)
     {
       return (
         <Card className="mb-3 rounded-0">

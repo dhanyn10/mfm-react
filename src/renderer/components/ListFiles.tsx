@@ -3,7 +3,7 @@ import { ListGroup } from 'react-bootstrap'
 import { Utils } from 'renderer/scripts/Utils'
 import fs from 'fs'
 
-export default class ListFiles extends React.Component {
+export default class ListFiles extends React.Component <any, any> {
   constructor() {
     super()
 
@@ -22,12 +22,12 @@ export default class ListFiles extends React.Component {
       let rdir = fs.readdirSync(dirLocation)
       let countList = 0
       rdir.forEach((filename) => {
-        countList++
         this.state.listfileArray.push({
             id: countList,
             name: filename,
             selected: false
         })
+        countList++
       })
       if(countList > 0)
       {
@@ -37,14 +37,17 @@ export default class ListFiles extends React.Component {
     }
   }
   handleSelection = (id) => {
-    let idx = id - 1
+    let idx = id
     let listfileArray = [...this.state.listfileArray ]
     if(this.state.listfileArray[idx].selected == false)
       listfileArray[idx] = {...listfileArray[idx], selected: true}
     else
       listfileArray[idx] = {...listfileArray[idx], selected: false}
+
+    console.log("listfiles: ", listfileArray)
+    //save data with setState, keep for future array
     this.setState({listfileArray})
-    this.props.sendFilesData(this.state.listfileArray)
+    this.props.sendFilesData(listfileArray)
   }
   render() {
     return (
