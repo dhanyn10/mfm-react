@@ -8,8 +8,10 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/destructuring-assignment': 'off',
     'react/no-access-state-in-setstate': 'off',
+    'react/no-unused-state': 'off',
     // more custom rules
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     'no-console': 'off',
     'import/prefer-default-export': 'off',
     'prettier/prettier': [
