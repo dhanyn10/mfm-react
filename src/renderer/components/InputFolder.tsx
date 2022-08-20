@@ -3,6 +3,14 @@ import React from 'react';
 import { dialog } from '@electron/remote';
 
 export class InputFolder extends React.Component<any, any> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      filesPath: null,
+    };
+  }
+
   browse = () => {
     dialog
       .showOpenDialog({
@@ -13,6 +21,9 @@ export class InputFolder extends React.Component<any, any> {
         if (result.canceled === false) {
           const filepaths = result.filePaths[0];
           this.props.filespath(filepaths);
+          this.setState({
+            filePath: filepaths,
+          });
         }
         return null;
       })
@@ -29,6 +40,7 @@ export class InputFolder extends React.Component<any, any> {
             className="rounded-0"
             type="text"
             placeholder="Folder..."
+            value={this.state.filePath}
             disabled
           />
         </Col>
