@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import { Utils } from 'renderer/scripts/Utils';
 import fs from 'fs';
+import { Utils } from '../scripts/Utils';
 
 export default class ListFiles extends React.Component<any, any> {
   constructor(props: any) {
@@ -54,7 +54,7 @@ export default class ListFiles extends React.Component<any, any> {
         {this.state.listfileArray.map((d: any) => (
           <ListGroup.Item
             key={d.id}
-            className={d.selected === true ? 'active' : null}
+            className={'' + (d.selected === true ? 'active' : null)} // eslint-disable-line
             onClick={() => this.handleSelection(d.id)}
           >
             {d.name}
