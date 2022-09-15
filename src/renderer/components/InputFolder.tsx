@@ -11,25 +11,18 @@ export class InputFolder extends React.Component<any, any> {
     };
   }
 
-  browse = () => {
-    dialog
-      .showOpenDialog({
-        properties: ['openDirectory'],
-      })
-      .then((result) => {
-        //  when user doesnt cancel opendirectory
-        if (result.canceled === false) {
-          const filepaths = result.filePaths[0];
-          this.props.filespath(filepaths);
-          this.setState({
-            filePath: filepaths,
-          });
-        }
-        return null;
-      })
-      .catch((error) => {
-        console.error(`error : ${error}`);
+  browse = async () => {
+    const result = await dialog.showOpenDialog({
+      properties: ['openDirectory'],
+    });
+    if (result.filePaths[0]) {
+      const filepaths = result.filePaths[0];
+      this.props.filespath(filepaths);
+      this.setState({
+        filePath: filepaths,
       });
+    }
+    return null;
   };
 
   render() {
