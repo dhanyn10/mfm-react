@@ -24,7 +24,7 @@ jobs:
           package-manager: yarn
           output: report-markdown
           test-script: yarn coverage
-          coverage-file: report.json
+          coverage-file: ./report.json
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: ${{ steps.coverage.outputs.report }}
