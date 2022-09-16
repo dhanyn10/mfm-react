@@ -18,13 +18,8 @@ jobs:
         run: yarn
       - name: build apps main & renderer
         run: yarn build
-      - uses: ArtiomTr/jest-coverage-report-action@v2
-        id: coverage
-        with:
-          coverage-file: ./report.json
-          output: report-markdown
-          test-script: yarn coverage
-          package-manager: yarn
-      - uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          message: ${{ steps.coverage.outputs.report }}
+      - name: coverage
+        run: jest --json --coverage --coverageReporters json-summary
+
+      - name: Jest coverage comment
+        uses: MishaKav/jest-coverage-comment@main
