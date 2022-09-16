@@ -18,6 +18,8 @@ jobs:
         run: yarn
       - name: build apps main & renderer
         run: yarn build
+      - name: Directory Permissions
+        run: chmod -R 777 coverage
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
