@@ -22,8 +22,9 @@ jobs:
         id: coverage
         with:
           package-manager: yarn
+          output: report-markdown
           test-script: yarn coverage
-          coverage-file: ./coverage/lcov-report/index.html
+          coverage-file: ./coverage/report.json
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: ${{ steps.coverage.outputs.report }}
