@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: install yarn packages
+        run: yarn
+      - name: build apps main & renderer
+        run: yarn build
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
