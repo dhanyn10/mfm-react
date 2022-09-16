@@ -19,8 +19,8 @@ jobs:
       - name: build apps main & renderer
         run: yarn build
       - name: coverage
-        run: yarn jest --json --coverage  --outputFile=coverage.json
+        run: yarn jest --json --coverage  --outputFile=coverage.txt
       - name: Jest coverage comment
         uses: MishaKav/jest-coverage-comment@main
         with:
-          coverage-path: ./coverage.json
+          coverage-path: ./coverage.txt
