@@ -1,20 +1,20 @@
 name: 'coverage'
 on:
-    pull_request:
-        branches:
-            - master
-            - main
+  pull_request:
+    branches:
+      - master
+      - main
 jobs:
-    coverage:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: ArtiomTr/jest-coverage-report-action@v2
-              id: coverage
-              with:
-                  package-manager: yarn
-                  test-script: yarn coverage
-                  output: report-markdown
-            - uses: marocchino/sticky-pull-request-comment@v2
-              with:
-                  message: ${{ steps.coverage.outputs.report }}
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+        id: coverage
+        with:
+          package-manager: yarn
+          test-script: yarn coverage
+          coverage-file: ./coverage/lcov-report/index.html
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ${{ steps.coverage.outputs.report }}
