@@ -21,10 +21,10 @@ jobs:
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
-          package-manager: yarn
+          coverage-file: ./report.json
           output: report-markdown
           test-script: yarn coverage
-          coverage-file: ./report.json
+          package-manager: yarn
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: ${{ steps.coverage.outputs.report }}
