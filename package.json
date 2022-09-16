@@ -15,7 +15,7 @@
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts",
     "test": "jest",
     "prepare": "husky install",
-    "coverage": "jest --json --coverage --testLocationInResults --outputFile=./coverage/report.json"
+    "coverage": "jest --json --coverage --testLocationInResults --outputFile=report.json"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

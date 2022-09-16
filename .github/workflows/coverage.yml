@@ -18,16 +18,13 @@ jobs:
         run: yarn
       - name: build apps main & renderer
         run: yarn build
-      - name: Directory Permissions
-        working-directory: /
-        run: chmod -R 777 ./coverage
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
           package-manager: yarn
           output: report-markdown
           test-script: yarn coverage
-          coverage-file: ./coverage/report.json
+          coverage-file: report.json
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: ${{ steps.coverage.outputs.report }}
