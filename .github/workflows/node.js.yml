@@ -32,9 +32,3 @@ jobs:
         run: yarn build
       - name: run Jest Testing
         run: yarn test
-      - name: coverage
-        run: npx jest --coverage | tee ./coverage.txt
-      - name: Jest coverage comment
-        uses: MishaKav/jest-coverage-comment@main
-        with:
-          coverage-path: ./coverage.txt
