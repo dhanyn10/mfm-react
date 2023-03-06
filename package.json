@@ -152,7 +152,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.10",
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.0.0",
+    "@testing-library/react": "^14.0.0",
     "@types/jest": "^27.4.1",
     "@types/node": "18.11.18",
     "@types/react": "^18.0.17",
